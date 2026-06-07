@@ -1,0 +1,2 @@
+- Get CloudFare and restrict ips down to cloudfare IPs
+- Replace ENV variables with stuff once money

@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/*
+  ─────────────────────────────────────────────
+  Custom layer — augments DaisyUI, doesn't fight it
+  ─────────────────────────────────────────────
+*/
+
+@layer base {
+  :root {
+    --radius-btn: 0.5rem;
+    --radius-card: 1rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  /* Subtle page-load fade */
+  #app {
+    animation: app-in 0.3s ease both;
+  }
+
+  @keyframes app-in {
+    from { opacity: 0; translate: 0 6px; }
+    to   { opacity: 1; translate: 0 0;   }
+  }
+}
+
+@layer components {
+  /* Staggered card entrance */
+  .card {
+    animation: card-in 0.4s ease both;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.19s; }
+
+  @keyframes card-in {
+    from { opacity: 0; translate: 0 12px; }
+    to   { opacity: 1; translate: 0 0;    }
+  }
+}
+
+@layer utilities {
+  /* Tight tracking helper for display text */
+  .tracking-display {
+    letter-spacing: -0.03em;
+  }
+}
